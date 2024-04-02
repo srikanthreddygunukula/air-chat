@@ -13,8 +13,15 @@ import {
 import Login from "../components/Authentication/Login";
 import Signup from "../components/Authentication/Signup";
 import iconGif from "../iconV5.png";
+import { useHistory,useEffect } from "react";
 
 const HomePage = () => {
+  const history = useHistory();
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+
+    if (user) history.push("/chats");
+  }, [history]);
   return (
     <>
       <Container maxW="xl" centerContent paddingTop={"20vh"}>
