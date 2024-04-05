@@ -7,11 +7,13 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  Input,
 } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/button";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { useToast } from "@chakra-ui/react";
 import { ChatState } from "../../Context/ChatProvider";
+import { FormControl } from "@chakra-ui/form-control";
 
 const GroupChatModal = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -22,6 +24,7 @@ const GroupChatModal = ({ children }) => {
   const [loading, setLoading] = useState();
   const toast = useToast();
   const { user, chats, setChats } = ChatState();
+  const handleSearch = () => {};
   return (
     <>
       <span onClick={onOpen}>{children}</span>
@@ -38,11 +41,22 @@ const GroupChatModal = ({ children }) => {
             Create Group Chat
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody
-            display={"flex"}
-            flexDir={"column"}
-            alignItems={"center"}
-          ></ModalBody>
+          <ModalBody display={"flex"} flexDir={"column"} alignItems={"center"}>
+            <FormControl>
+              <Input
+                placeholder="Chat Name"
+                mb={3}
+                onChange={(e) => setGroupChatName(e.target.value)}
+              ></Input>
+            </FormControl>
+            <FormControl>
+              <Input
+                placeholder="Add Users"
+                mb={3}
+                onChange={(e) => handleSearch(e.target.value)}
+              ></Input>
+            </FormControl>
+          </ModalBody>
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onClose}>
