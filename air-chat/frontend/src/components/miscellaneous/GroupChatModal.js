@@ -25,6 +25,7 @@ const GroupChatModal = ({ children }) => {
   const toast = useToast();
   const { user, chats, setChats } = ChatState();
   const handleSearch = () => {};
+  const handleSubmit = () => {};
   return (
     <>
       <span onClick={onOpen}>{children}</span>
@@ -54,15 +55,16 @@ const GroupChatModal = ({ children }) => {
                 placeholder="Add Users"
                 mb={3}
                 onChange={(e) => handleSearch(e.target.value)}
-              ></Input>
+              />
             </FormControl>
+            {/* selected users */}
+            {/* render search user */}
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+            <Button colorScheme="blue" onClick={handleSubmit}>
+              Create Chat
             </Button>
-            <Button variant="ghost">Secondary Action</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
