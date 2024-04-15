@@ -5,6 +5,7 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { IconButton } from "@chakra-ui/button";
 import { getSender, getSenderFull } from "../config/ChatLogics";
 import ProfileModal from "./miscellaneous/ProfileModal";
+import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const { user, selectedChat, setSelectedChat } = ChatState();
@@ -35,13 +36,26 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             ) : (
               <>
                 {selectedChat.chatName.toUpperCase()}
-                {/* <UpdateGroupChatModal
+                <UpdateGroupChatModal
                   fetchAgain={fetchAgain}
                   setFetchAgain={setFetchAgain}
-                /> */}
+                />
               </>
             )}
           </Text>
+          <Box
+            display="flex"
+            flexDirection={"column"}
+            justifyContent={"flex-end"}
+            padding={3}
+            background={"#E8E8E8"}
+            width={"100%"}
+            height={"100%"}
+            borderRadius={"1%"}
+            overflowY={"hidden"}
+          >
+            {/* Messages */}
+          </Box>
         </>
       ) : (
         <Box
