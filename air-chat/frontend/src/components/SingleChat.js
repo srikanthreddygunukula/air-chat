@@ -8,6 +8,8 @@ import ProfileModal from "./miscellaneous/ProfileModal";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { Spinner, FormControl, Input, useToast } from "@chakra-ui/react";
 import axios from "axios";
+import "./styles.css";
+import ScrollableChat from "./ScrollableChat";
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [messages, setMessages] = useState([]);
@@ -117,6 +119,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 <UpdateGroupChatModal
                   fetchAgain={fetchAgain}
                   setFetchAgain={setFetchAgain}
+                  fetchMessages={fetchMessages}
                 />
               </>
             )}
@@ -141,7 +144,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 margin={"auto"}
               />
             ) : (
-              <div>{/* Messages */}</div>
+              <div className="messages">
+                <ScrollableChat messsages={messages} />
+              </div>
             )}
             <FormControl onKeyDown={sendMessage} isRequired mt={3}>
               <Input
