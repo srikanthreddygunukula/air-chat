@@ -9,8 +9,8 @@ const ScrollableChat = ({ messages }) => {
       {messages &&
         messages.map((m, i) => (
           <div style={{ display: "flex" }} key={m._id}>
-            {isSamesender(messages, m, i, user._id) ||
-              (isLastMessage(messages, m, i, user._id) && (
+            {(isSamesender(messages, m, i, user._id) ||
+              isLastMessage(messages, m, i, user._id) && (
                 <Tooltip
                   label={m.sender.name}
                   placement="bottom-start"
@@ -25,7 +25,19 @@ const ScrollableChat = ({ messages }) => {
                     src={m.sender.pic}
                   />
                 </Tooltip>
-              ))}
+              )}
+            <span
+              style={{
+                backgroundColor: `${
+                  m.sender._id === user._id ? "#BEE3F8" : "#B9F5D0"
+                }`,
+                borderRadius: "20px",
+                padding: "5px 15px",
+                maxWidth: "75%",
+              }}
+            >
+              {m.content}
+            </span>
           </div>
         ))}
     </ScrollableFeed>
