@@ -82,7 +82,7 @@ const Signup = () => {
       setLoading(false);
       return;
     }
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       toast({
         title: "Passwords doesn't match",
         status: "warning",
