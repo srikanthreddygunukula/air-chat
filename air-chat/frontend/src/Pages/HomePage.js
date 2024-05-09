@@ -14,7 +14,7 @@ import Login from "../components/Authentication/Login";
 import Signup from "../components/Authentication/Signup";
 import iconGif from "../iconV5.png";
 import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 
 const HomePage = () => {
   const history = useHistory();

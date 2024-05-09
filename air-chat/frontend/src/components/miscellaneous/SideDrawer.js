@@ -30,6 +30,7 @@ import axios from "axios";
 import ChatLoading from "../ChatLoading";
 import UserListItem from "../UserAvatar/UserListItem";
 import { getSender } from "../../config/ChatLogics";
+import "./style.css";
 
 const SideDrawer = () => {
   const [search, setSearch] = useState("");
@@ -140,7 +141,16 @@ const SideDrawer = () => {
         </Text>
         <div>
           <Menu>
-            <MenuButton p={1}>
+            <MenuButton p={2}>
+              <div>
+                {notification.length > 0 && (
+                  <div className="notification-badge">
+                    <span className="badge">
+                      {notification.length > 99 ? "99+" : notification.length}
+                    </span>
+                  </div>
+                )}
+              </div>
               <BellIcon fontSize={"xx-large"} m={1} />
             </MenuButton>
             <MenuList paddingLeft={2}>
