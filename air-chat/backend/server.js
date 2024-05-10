@@ -43,14 +43,13 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 9000;
 
 const server = app.listen(
-  9000,
+  PORT,
   console.log(`Server Started on PORT ${PORT}`.yellow.bold)
 );
 
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
-  cors: "http://localhost:3000",
-  cors: "https://airchat-yvs0.onrender.com",
+  cors: { origin: "http://localhost:3000" },
 });
 
 io.on("connection", (socket) => {
