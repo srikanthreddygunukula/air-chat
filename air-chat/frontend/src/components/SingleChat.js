@@ -14,7 +14,7 @@ import io from "socket.io-client";
 import Lottie from "react-lottie";
 import animationData from "../animations/typingAnimation.json";
 
-const ENDPOINT = "https://airchat-two.vercel.app/";
+const ENDPOINT = "https://airchat-yvs0.onrender.com";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
