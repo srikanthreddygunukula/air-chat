@@ -64,7 +64,7 @@ const Login = () => {
       return;
     } catch (error) {
       toast({
-        title: "Error Occured",
+        title: "Login Failed",
         description: error.response.data.message,
         status: "error",
         duration: 5000,
